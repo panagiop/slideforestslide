@@ -3,6 +3,8 @@ slideforestslide
 
 Just another slideshow jQuery plugin.
 
+See the demo here: http://intergalacdev.net63.net/slideforestslide/
+
 How to use it:
 
 1. Copy and paste the code included in "index.html" file into the ".html" file in which you want the slideshow to be appeared.
