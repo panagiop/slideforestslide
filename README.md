@@ -24,7 +24,8 @@ How to use it:
    		sliderWidth : 960,
         sliderHeight : 330,
         interTime : 3500,
-        autoslideFlag: true
+        autoslideFlag: true, effectTime: 1500,
+        effects : 'linear'
 
    So if you want let's say for example to change the transition time between the slides to 4 seconds (or 4000 in ms) and to change slides manually (with the existing buttons) then you have to write:
 
@@ -36,6 +37,20 @@ How to use it:
 			});
 		});
    </script> 
+   
+   Or if you want to change the default effect (linear) of the animation and want to add something more funky 
+   with duration of 1 sec, you can write:
+   
+   <script>
+		$(function(){
+			$('#slides').slideforestslide({
+				effects: 'easeOutBounce', 
+				effectTime: 1000
+			});
+		});
+   </script> 
+   
+   Visiting this link: http://jqueryui.com/resources/demos/effect/easing.html you can find a list of all supported effects. Just copy and paste the name of the effect you want to apply.
 
 In conclusion you can change the header's name, the content of the paragraph on each slide and the corrensponding images, upon your needs.
 
