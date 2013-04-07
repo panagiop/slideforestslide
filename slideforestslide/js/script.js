@@ -6,7 +6,9 @@
         sliderWidth : 960,
         sliderHeight : 330,
         interTime : 3500,
-        autoslideFlag: true
+        autoslideFlag: true,
+        effectTime: 1500,
+        effects : 'linear'
     };
 
     var options = $.extend(defaults, options);
@@ -16,8 +18,7 @@
         $(this).css({'width': defaults.sliderWidth, 'height' : defaults.sliderHeight});
 
         // Manipulating the DOM by inserting the left and right buttons for navigation,
-        // the shapes-circles filled with white color indicating the current slide and 
-        // with black in any other state.
+        // and shapes-circles filled with white color indicating the current slide
 
         var currentPosition = 0,
             slideWidth = defaults.sliderWidth,
@@ -42,7 +43,8 @@
         manageControls(currentPosition);
         circleHighLight(currentPosition);
 
-        // Here we define the time interval between the slides by calling the function
+        // Here we define the time interval between the slides by calling the 
+        // autoslide function every 3.5 sec (default)
        
         if (defaults.autoslideFlag === true) setInterval(autoSlide, defaults.interTime);
         
@@ -64,7 +66,10 @@
             // Here it comes some feeling of movement. Just animate the transition bewtween 
             // the slides according to the current position each time.
 
-            $('#slideInner').animate({marginLeft : slideWidth * (-currentPosition)});
+            $('#slideInner').animate({
+                marginLeft : slideWidth * (-currentPosition)}, 
+                {duration: defaults.effectTime, 
+                easing: defaults.effects});
         });
 
         function manageControls(position){
@@ -99,7 +104,10 @@
         }
 
         function autoSlide() {
-            $('#slideInner').animate({marginLeft : slideWidth * (-currentPosition)});
+            $('#slideInner').animate({
+                marginLeft : slideWidth * (-currentPosition)}, 
+                {duration: defaults.effectTime, 
+                easing: defaults.effects});
             manageControls(currentPosition);
             circleHighLight(currentPosition);
             currentPosition++;
